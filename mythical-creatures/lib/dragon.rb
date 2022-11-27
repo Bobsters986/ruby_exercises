@@ -23,3 +23,4 @@ class Dragon
         hungry
     end
 end
+#commented sections are my initial solutions
