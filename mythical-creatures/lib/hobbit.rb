@@ -5,7 +5,6 @@ class Hobbit
         @name = name
         @disposition = disposition
         @age = 0
-        # @has_ring = assign_ring_on_creation
     end
 
     def celebrate_birthday
@@ -13,29 +12,18 @@ class Hobbit
     end
 
     def adult?
-       return true if age > 32
-       false
+       @age > 32
     end
 
     def old?
-        true if age > 100
+        @age > 100
     end
-        
-    # def assign_ring_on_creation
-    #     return true if self.name.downcase == 'frodo'
-    #     false
-    # end
 
     def has_ring?
-        # has_ring
-        return true if self.name == 'Frodo'
-        false
+        @name == 'Frodo'
     end
 
     def is_short?
         true
     end
-
-
 end
-#commented sections are video example solutions
