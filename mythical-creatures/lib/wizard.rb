@@ -17,12 +17,15 @@ class Wizard
     end
 
     def rested?
-        return false if spell_counter >= 3
-        rested
+        @rested
     end
 
     def cast
-        @spell_counter += 1
-        "MAGIC MISSILE!"
+        if @spell_counter < 2
+            @spell_counter += 1
+            "MAGIC MISSILE!"
+        else
+            @rested = false
+        end
     end
 end
