@@ -10,17 +10,11 @@ class Dragon
     end
 
     def eat
-        # @num_meals += 1
         @num_meals += 1
         @hungry = false if num_meals > 2
     end
 
     def hungry?
-        # if @num_meals > 2
-        #     @hungry = false
-        # else true
-        # end
-        hungry
+        @hungry
     end
 end
-#commented sections are my initial solutions
