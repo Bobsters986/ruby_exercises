@@ -9,8 +9,7 @@ class Pirate
     end
 
     def cursed?
-        return true if evil > 2
-        false
+        @evil > 2
     end
 
     def commit_heinous_act
