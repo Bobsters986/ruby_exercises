@@ -14,7 +14,7 @@ RSpec.describe Werewolf do
 
   it 'is by default human' do
     werewolf = Werewolf.new('David', 'London')
-    expect(werewolf.human?).to be false
+    expect(werewolf.human?).to be true
   end
 
   it 'when starting as a human, changing makes it turn into a werewolf' do
@@ -50,35 +50,64 @@ RSpec.describe Werewolf do
   end
 
   it 'is not hungry by default' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+
+    expect(werewolf.hungry?).to be false
   end
 
   it 'becomes hungry after changing to a werewolf' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    
+    expect(werewolf.hungry?).to be false
+    werewolf.change!
+    expect(werewolf.hungry?).to be true
   end
 
-  class Victim
-    attr_accessor :status
+  # class Victim
+  #   attr_accessor :status
 
-    def initialize
-      @status = :alive
-    end
-  end
+  #   def initialize
+  #     @status = :alive
+  #   end
+  # end
 
   it 'consumes a victim' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    victim = Victim.new
+    werewolf.change!
+    expect(werewolf.victims).to eq([])
+
+    werewolf.consume(victim)   
+    expect(werewolf.victims).to eq([victim])
   end
 
   it 'cannot consume a victim if it is in human form' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    victim = Victim.new
+
+    werewolf.consume(victim)
+    expect(werewolf.victims).to eq([])
   end
 
   it 'a werewolf that has consumed a human being is no longer hungry' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    victim = Victim.new
+
+    werewolf.change!
+    expect(werewolf.hungry?).to be true
+
+    werewolf.consume(victim)
+    expect(werewolf.hungry?).to be false
   end
 
   it 'a werewolf who has consumed a victim makes the victim dead' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    victim = Victim.new
+
+    werewolf.change!
+    werewolf.consume(victim)
+
+    expect(victim.status).to eq(:dead)
   end
 
 end
