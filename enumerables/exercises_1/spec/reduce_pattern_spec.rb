@@ -17,17 +17,21 @@ RSpec.describe 'reduce pattern' do
     expect(difference).to eq(-170)
   end
 
-  xit 'multiplies a list of numbers' do
+  it 'multiplies a list of numbers' do
     numbers = [2, 3, 5, 7]
     product = 1
-    # Your code goes here
+    numbers.each do |num|
+      product = product * num
+    end
     expect(product).to eq(210)
   end
 
-  xit 'capitalizes key words in phrase' do
+  it 'capitalizes key words in phrase' do
     keywords = ["fish", "blue"]
     phrase = 'one fish two fish red fish blue fish'
-    # Your code goes here
+    keywords.each do |keyword|
+      phrase = phrase.gsub(keyword, keyword.upcase) if keywords.include?(keyword)
+    end
     expect(phrase).to eq('one FISH two FISH red FISH BLUE FISH')
   end
 
