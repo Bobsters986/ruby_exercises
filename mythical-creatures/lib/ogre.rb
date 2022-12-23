@@ -1,5 +1,6 @@
 class Ogre
   attr_reader :name, :home, :swings, :encounter_counter
+
   def initialize(name, home = "Swamp")
     @name = name
     @home = home
@@ -17,7 +18,7 @@ class Ogre
   
   def swing_at(human)
     @swings += 1
-    human.knock_unconscious if swings % 2 == 0
+    human.knock_unconscious if @swings.even?
   end
   
   def apologize(human)
@@ -28,6 +29,7 @@ end
 
 class Human
   attr_reader :name, :encounter_counter, :knocked_out
+
   def initialize(name = "Jane")
     @name = name
     @encounter_counter = 0
@@ -52,6 +54,6 @@ class Human
   end
   
   def knocked_out?
-   knocked_out
+    @knocked_out
   end
 end
