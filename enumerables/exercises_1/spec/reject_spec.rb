@@ -98,9 +98,8 @@ RSpec.describe 'reject' do
 
   it 'remove arrays' do
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
-    remaining = elements.reject do |element|
-      element.is_a?(Array)
-    end
+    remaining = elements.reject { |element| element.is_a?(Array) }
+    
     expect(remaining).to eq(["CAT", 23, "AIMLESS", 43, "butter"])
   end
 

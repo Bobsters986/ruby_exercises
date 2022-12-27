@@ -108,15 +108,17 @@ RSpec.describe 'reject pattern' do
     expect(remaining).to eq(["dog", "Trevor", "butter"])
   end
 
-  xit 'removes arrays' do
+  it 'removes arrays' do
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
-    # Your code goes here
-    expected(remaining).to eq(["CAT", 23, "AIMLESS", 43, "butter"])
+    remaining = []
+    elements.each { |element| remaining << element if !element.is_a?(Array) }
+    expect(remaining).to eq(["CAT", 23, "AIMLESS", 43, "butter"])
   end
 
-  xit 'removes hashes' do
+  it 'removes hashes' do
     elements = ["cat", {:dog=>"fido"}, 23, {:stuff=>"things"}, "aimless", 43]
-    # Your code goes here
+    remaining = []
+    elements.each { |element| remaining << element if !element.is_a?(Hash) }
     expect(remaining).to eq(["cat", 23, "aimless", 43])
   end
 end
