@@ -14,23 +14,28 @@ RSpec.describe 'group by pattern' do
     numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
     odd_and_even = Hash.new {|hash, key| hash[key] = []}
     numbers.each do |number|
-      # Your code goes here
+      odd_and_even[number.odd?] << number
     end
     expected = {1=>[1, 1, 3, 5, 13, 21, 55], 0=>[2, 8, 34]}
     expect(odd_and_even).to eq(expected)
   end
 
-  xit 'groups by first letter' do
+  it 'groups by first letter' do
     words = ["ant", "axis", "albatross", "bolt", "badge", "butter", "car", "cdr", "column"]
     words_by_first_letter = Hash.new {|hash, key| hash[key] = []}
-    # Your code goes here
+    words.each do |word|
+      words_by_first_letter[word.chr] << word
+    end
     expected = {"a"=>["ant", "axis", "albatross"], "b"=>["bolt", "badge", "butter"], "c"=>["car", "cdr", "column"]}
     expect(words_by_first_letter).to eq(expected)
   end
 
-  xit 'group by uniqueness' do
+  it 'group by uniqueness' do
     words = ["one", "two", "one", "TWO", "three", "one", "three", "three", "three"]
-    # Your code goes here
+    grouped = Hash.new {|hash, key| hash[key] = []}
+    words.each do |word|
+      grouped[word.downcase] << word
+    end
     expected = {"one"=>["one", "one", "one"], "two"=>["two", "TWO"], "three"=>["three", "three", "three", "three"]}
     expect(grouped).to eq(expected)
   end
