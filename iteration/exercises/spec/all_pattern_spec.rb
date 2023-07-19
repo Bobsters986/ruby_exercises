@@ -90,20 +90,26 @@ RSpec.describe 'all pattern' do
     expect(all_five_digits).to be false
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     snacks = ["GARLIC PLANTAINS", "SNICKERDOODLES", "Pretzels"]
-    # Your Code Here
+    
+    all_caps = snacks.all? do |snack|
+      snack == snack.upcase
+    end
 
     expect(all_caps).to be false
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     snacks = {
       savory: "GARLIC PLANTAINS",
       sweet: "SNICKERDOODLES",
       salty: "Pretzels"
     }
-    # Your Code Here
+    
+    all_caps = snacks.all? do |type, snack|
+      snack == snack.upcase
+    end
 
     expect(all_caps).to be false
   end
