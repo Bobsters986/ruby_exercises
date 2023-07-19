@@ -10,11 +10,11 @@ RSpec.describe 'group by pattern' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'groups by odds and evens' do
+  it 'groups by odds and evens' do
     numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
     odd_and_even = Hash.new {|hash, key| hash[key] = []}
     numbers.each do |number|
-      odd_and_even[number.odd?] << number
+      odd_and_even[number % 2] << number
     end
     expected = {1=>[1, 1, 3, 5, 13, 21, 55], 0=>[2, 8, 34]}
     expect(odd_and_even).to eq(expected)
