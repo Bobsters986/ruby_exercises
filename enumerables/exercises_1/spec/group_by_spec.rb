@@ -8,11 +8,13 @@ RSpec.describe 'group by' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'group by odd and even' do
+  it 'group numbers array by odd and even numbers to eq the expected hash' do
     numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
     odd_and_even = numbers.group_by do |number|
-      number.odd?
+      number % 2
     end
+
     expected = {1=>[1, 1, 3, 5, 13, 21, 55], 0=>[2, 8, 34]}
     expect(odd_and_even).to eq(expected)
   end
