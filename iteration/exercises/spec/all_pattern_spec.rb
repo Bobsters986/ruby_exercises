@@ -48,10 +48,15 @@ RSpec.describe 'all pattern' do
     expect(all_four_letters).to be true
   end
 
-  xit 'test 5' do
+  it 'test 5' do
     statuses = [:busy, :busy, :busy]
     all_busy = true
-    # Your Code Here
+    
+    statuses.each do |status|
+      if status != :busy
+        all_busy = false
+      end
+    end
 
     expect(all_busy).to be true
   end
