@@ -53,10 +53,12 @@ RSpec.describe 'max_by' do
     expect(found).to eq(1000000)
   end
 
-  xit 'smallest number' do
+  it 'smallest number' do
     numbers = [1, 10, 100, 1000, 10000, 1000000]
 
-    # write code here
+  found = numbers.max_by do |num|
+    -num
+  end
 
     expect(found).to eq(1)
   end
