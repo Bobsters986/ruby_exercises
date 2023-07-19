@@ -63,10 +63,12 @@ RSpec.describe 'max_by' do
     expect(found).to eq(1)
   end
 
-  xit 'most programmers' do
+  it 'most programmers' do
     programmers = {ruby: ["katrina", "sandi", "jim", "aaron", "desi"], java: ["abby", "jon", "susan"]}
 
-    # write code here
+    most_programmers = programmers.max_by do |language, programmers|
+      programmers.length
+    end
 
     expect(most_programmers.first).to eq(:ruby)
   end
