@@ -37,9 +37,13 @@ RSpec.describe 'group by' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'grouped by number of zeroes' do
+  it 'grouped by number of zeroes' do
     numbers = [1, 3, 500, 200, 4000, 3000, 10000, 90, 20, 500000]
-    # Your code goes here
+
+    grouped = numbers.group_by do |number|
+      number.to_s.count("0")
+    end
+
     expected = {0=>[1, 3], 2=>[500, 200], 3=>[4000, 3000], 4=>[10000], 1=>[90, 20], 5=>[500000]}
     expect(grouped).to eq(expected)
   end
