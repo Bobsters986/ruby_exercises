@@ -40,18 +40,27 @@ RSpec.describe 'group by pattern' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'group by number of zeroes' do
+  it 'group by number of zeroes' do
     numbers = [1, 3, 500, 200, 4000, 3000, 10000, 90, 20, 500000]
-    # Your code goes here
+    grouped = Hash.new {|hash, key| hash[key] = []}
+
+    numbers.each do |number|
+      grouped[number.to_s.count("0")] << number
+    end
+
     expected = {0=>[1, 3], 2=>[500, 200], 3=>[4000, 3000], 4=>[10000], 1=>[90, 20], 5=>[500000]}
     expect(grouped).to eq(expected)
   end
 
-  xit 'group by order of magnitude' do
+  it 'group by order of magnitude' do
     numbers = [1, 3, 503, 239, 4938, 3932, 19982, 93, 21, 501787]
-    # Your code goes here
+    grouped = Hash.new {|hash, key| hash[key] = []}
+
+    numbers.each do |number|
+      grouped[number.to_s.length] << number
+    end
+
     expected = {1=>[1, 3], 2=>[93, 21], 3=>[503, 239], 4=>[4938, 3932], 5=>[19982], 6=>[501787]}
     expect(grouped).to eq(expected)
   end
 end
-
