@@ -33,10 +33,12 @@ RSpec.describe 'max_by' do
   end
 
   # You're on your own on this one.
-  xit 'array with fewest items' do
+  it 'array with fewest items' do
     arrays = [[:a, :b, :c], [1, 2, 3, 4, 5], ["zoo", :things, :stuff]]
 
-    # write code here
+    smallest_array = arrays.min_by do |array|
+      array.length
+    end
 
     expect(smallest_array).to eq([:a, :b, :c])
   end
