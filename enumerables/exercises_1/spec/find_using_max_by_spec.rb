@@ -22,10 +22,12 @@ RSpec.describe 'max_by' do
   end
 
   # This one is missing the entire loop
-  xit 'array with the most items' do
+  it 'array with the most items' do
     arrays = [[:a, :b, :c], [1, 2, 3, 4, 5], ["zoo", :things, :stuff]]
 
-    # write code here
+    biggest_array = arrays.max_by do |array|
+      array.length
+    end
 
     expect(biggest_array).to eq([1,2,3,4,5])
   end
