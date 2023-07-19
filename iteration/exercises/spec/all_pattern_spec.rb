@@ -24,11 +24,11 @@ RSpec.describe 'all pattern' do
     expect(all_zeros).to be true
   end
 
-  xit 'test 3' do
+  it 'test 3' do
     words = ["love", "hate", "fire", "bird", "call"]
     all_four_letters = true
     words.each do |word|
-      # Your Code Here
+      word.length == 4
     end
     expect(all_four_letters).to be true
   end
