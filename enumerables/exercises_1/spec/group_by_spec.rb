@@ -48,9 +48,13 @@ RSpec.describe 'group by' do
     expect(grouped).to eq(expected)
   end
 
-  xit 'grouped by order of magnitude' do
+  it 'grouped by order of magnitude' do
     numbers = [1, 3, 503, 239, 4938, 3932, 19982, 93, 21, 501787]
-    # Your code goes here
+    
+    grouped = numbers.group_by do |number|
+      number.to_s.length
+    end
+
     expected = {1=>[1, 3], 2=>[93, 21], 3=>[503, 239], 4=>[4938, 3932], 5=>[19982], 6=>[501787]}
     expect(grouped).to eq(expected)
   end
