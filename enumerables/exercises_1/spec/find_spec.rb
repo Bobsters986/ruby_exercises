@@ -56,6 +56,14 @@ RSpec.describe 'find test' do
     expect(found).to eq(9)
   end
 
+  it 'finds all multiple of 3' do
+    numbers = [2, 8, 9, 27, 24, 5]
+    found = numbers.find_all do |num|
+      num % 3 == 0
+    end
+    expect(found).to eq([9, 27, 24])
+  end
+
   it 'first word starting with q' do
     words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
     found = words.find do |word|
