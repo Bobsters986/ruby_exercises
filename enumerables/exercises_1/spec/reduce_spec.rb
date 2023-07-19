@@ -25,11 +25,14 @@ RSpec.describe 'reduce' do
     expect(result).to eq(210)
   end
 
-  xit 'capitalize key words in phrase' do
+  it 'capitalize key words in phrase' do
     keywords = ["fish", "blue"]
     # initial value is 'one fish two fish red fish blue fish'
     phrase = 'one fish two fish red fish blue fish'
-    result = 
+    result = keywords.reduce(phrase) do |difference, keyword|
+      difference.gsub(keyword, keyword.upcase)
+    end
+    
     expect(result).to eq('one FISH two FISH red FISH BLUE FISH')
   end
 
