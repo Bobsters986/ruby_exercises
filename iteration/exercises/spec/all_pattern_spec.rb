@@ -78,9 +78,15 @@ RSpec.describe 'all pattern' do
     expect(all_busy).to be true
   end
 
-  xit 'test 7' do
+  it 'test 7' do
     zip_codes = [94381, 831, 50009, 36232, 8992, 89999, 11110]
-    # Your Code Here
+    all_five_digits = true
+
+    zip_codes.each do |zip|
+      if zip.to_s.length != 5
+        all_five_digits = false
+      end
+    end
 
     expect(all_five_digits).to be false
   end
