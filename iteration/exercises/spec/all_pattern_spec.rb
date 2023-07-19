@@ -91,7 +91,7 @@ RSpec.describe 'all pattern' do
     expect(all_five_digits).to be false
   end
 
-  xit 'test 8' do
+  it 'test 8' do
     zip_codes = {
       "Megan" => 94381,
       "Sarah" => 831,
@@ -101,7 +101,10 @@ RSpec.describe 'all pattern' do
       "Cameron" => 89999,
       "Joshua" => 11110
     }
-    # Your Code Here
+    
+    all_five_digits = zip_codes.all? do |name, zip|
+      zip.to_s.length == 5
+    end
 
     expect(all_five_digits).to be false
   end
