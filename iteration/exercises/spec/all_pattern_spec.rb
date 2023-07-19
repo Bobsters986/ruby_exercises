@@ -61,14 +61,19 @@ RSpec.describe 'all pattern' do
     expect(all_busy).to be true
   end
 
-  xit 'test 6' do
+  it 'test 6' do
     friend_status = {
       "Megan" => :busy,
       "Sarah" => :busy,
       "Duncan" => :busy,
     }
     all_busy = true
-    # Your Code Here
+    
+    friend_status.each do |friend, status|
+      if status != :busy
+        all_busy = false
+      end
+    end
 
     expect(all_busy).to be true
   end
