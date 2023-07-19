@@ -33,7 +33,7 @@ RSpec.describe 'all pattern' do
     expect(all_four_letters).to be true
   end
 
-  xit 'test 4' do
+  it 'test 4' do
     words = {
       one: "love",
       two: "hate",
@@ -43,7 +43,7 @@ RSpec.describe 'all pattern' do
     }
     all_four_letters = true
     words.each do |position, word|
-      # Your Code Here
+      word.length == 4
     end
     expect(all_four_letters).to be true
   end
