@@ -9,9 +9,9 @@ class Bag
     candies.empty?
   end
 
-  # def count
-  #   candies.count
-  # end
+  def count
+    candies.count
+  end
 
   def <<(candy)
     candies << candy
