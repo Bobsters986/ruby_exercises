@@ -69,7 +69,7 @@ RSpec.describe Bag do
     expect(candy.type).to eq('Jawbreaker')
   end
 
-  xit 'removes candy from the bag when you grab it' do
+  it 'removes candy from the bag when you grab it' do
     bag = Bag.new
     bag << Candy.new('Reeses Pieces')
     bag << Candy.new('Junior Mints')
@@ -96,12 +96,12 @@ RSpec.describe Bag do
     expect(bag.count).to eq(1)
   end
 
-  xit 'can take one candy' do
+  it 'can take one candy' do
     bag = Bag.new
     bag << Candy.new('Lifesavers')
 
     candy = bag.take(1)
-    expect(candy.type).to eq('Lifesavers')
+    expect(candy.first.type).to eq('Lifesavers')
   end
 end
 

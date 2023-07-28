@@ -22,9 +22,11 @@ class Bag
   end
 
   def grab(type)
-    candies.select { |candy| candy.type == type }.pop
-    # candies.delete_at(candies.index { |candy| candy.type == type })
+    # candies.select { |candy| candy.type == type }.pop
+    candies.delete_at(candies.index { |candy| candy.type == type })
   end
 
-  
+  def take(number)
+    candies.pop(number)
+  end
 end
