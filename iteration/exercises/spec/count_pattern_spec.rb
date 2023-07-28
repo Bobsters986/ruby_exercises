@@ -55,10 +55,11 @@ RSpec.describe 'count pattern' do
     expect(older_than_fifty).to eq(0)
   end
 
-  xit 'test 5' do
+  it 'test 5' do
     ages = [39, 45, 29, 24, 50]
-    multiple_of_three = 0
-    # Your Code Here
+    multiple_of_three = ages.count do |age|
+      age % 3 == 0
+    end
 
     expect(multiple_of_three).to eq(3)
   end
