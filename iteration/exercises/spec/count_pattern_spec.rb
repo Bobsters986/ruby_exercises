@@ -64,7 +64,7 @@ RSpec.describe 'count pattern' do
     expect(multiple_of_three).to eq(3)
   end
 
-  xit 'test 6' do
+  it 'test 6' do
     ages = {
       abdi: 39,
       hassan: 45,
@@ -73,7 +73,11 @@ RSpec.describe 'count pattern' do
       miguel: 50
     }
     multiple_of_three = 0
-    # Your Code Here
+    ages.each do |name, age|
+      if age % 3 == 0
+        multiple_of_three += 1
+      end
+    end
 
     expect(multiple_of_three).to eq(3)
   end
