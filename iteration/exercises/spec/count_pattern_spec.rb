@@ -108,9 +108,12 @@ RSpec.describe 'count pattern' do
     expect(names_with_three_letters).to eq(2)
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     prices = [1.0, 3.9, 5.99, 18.5, 20.0]
-    # Your code goes here
+    
+    whole_numbers = prices.count do |price|
+      price % 1 == 0
+    end
 
     expect(whole_numbers).to eq(2)
   end
