@@ -84,7 +84,7 @@ RSpec.describe 'count pattern' do
 
   it 'test 7' do
     family = ["alice", "bob", "charlie", "david", "eve"]
-    
+
     names_with_three_letters = family.count do |name|
       name.length == 3
     end
@@ -92,7 +92,7 @@ RSpec.describe 'count pattern' do
     expect(names_with_three_letters).to eq(2)
   end
 
-  xit 'test 8' do
+  it 'test 8' do
     family = {
       mother: "alice",
       father: "bob",
@@ -100,7 +100,10 @@ RSpec.describe 'count pattern' do
       uncle: "david",
       sister: "eve"
     }
-    # Your Code Here
+
+    names_with_three_letters = family.count do |relationship, name|
+      name.length == 3
+    end
 
     expect(names_with_three_letters).to eq(2)
   end
