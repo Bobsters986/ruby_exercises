@@ -1,4 +1,5 @@
-require "./lib/escape_characters"
+require 'rspec'
+require_relative '../lib/escape_characters'
 
 RSpec.describe EscapeCharacters do
 
