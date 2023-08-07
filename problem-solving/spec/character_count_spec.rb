@@ -1,3 +1,9 @@
+class CharacterCount
+  def count(word)
+    word.length
+  end
+end
+
 RSpec.describe 'character count' do
 
   it 'can count a small word' do
